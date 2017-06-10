@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BookWorm</string>
+    <string-array name="options">
+        <item>Updates Feed</item>
+        <item>My Books</item>
+        <item>Scan Barcode</item>
+    </string-array>
+</resources>

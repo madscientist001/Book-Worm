@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/leftDrawer"
+    tools:context="grimreaper.bookworm.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="120dp"
+            android:paddingRight="120dp"
+            android:text="Sign Up"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="280dp"
+            android:background="#372515"
+            android:textColor="#ffffff"
+            android:id="@+id/signup"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="120dp"
+            android:paddingRight="120dp"
+            android:text="Sign In"
+            android:layout_marginTop="15dp"
+            android:id="@+id/signin"
+            android:background="#e8e6d8"
+            android:textColor="#333333"
+            android:layout_below="@id/signup"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    
+    <ListView
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:id="@+id/drawerList"
+        android:layout_gravity = "start"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#4a4a4a">
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>
