@@ -1,33 +1,36 @@
 package grimreaper.bookworm;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import layout.HomeFragment;
 
-    Button signUp;
-    Button signIn;
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener{
+
     private static CustomDrawerAdapter adapter;
     ArrayList<DrawerDataModel> drawerDataModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FragmentManager manager = (FragmentManager)getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.container , new HomeFragment());
+        transaction.addToBackStack(null);
+        transaction.commit();
+
         setContentView(R.layout.activity_main);
-        signUp = (Button)findViewById(R.id.signup);
-        signUp.setOnClickListener(this);
-        signIn = (Button)findViewById(R.id.signin);
-        signIn.setOnClickListener(this);
+
         drawerDataModel= new ArrayList<>();
 
         drawerDataModel.add(new DrawerDataModel("Updates Feed", R.drawable.dashboard_white));
@@ -42,13 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.signin){
-            Intent intent = new Intent(this , LoginActivity.class);
-            startActivity(intent);
-        }else if(view.getId() == R.id.signup){
-            Intent intent = new Intent(this , RegisterActivity.class);
-            startActivity(intent);
+    public void onButtonPressed(int button_id) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        switch (button_id) {
+            case R.id.signin :
+                transaction.replace(R.id.container , new SignInFragment());
+                break;
+            case R.id.signup :
+                transaction.replace(R.id.container , new SignUpFragment());
         }
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
