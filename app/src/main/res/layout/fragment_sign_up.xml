@@ -1,13 +1,100 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="grimreaper.bookworm.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Sign Up" />
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/my_toolbar"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="18sp"
+        android:layout_below="@id/my_toolbar"
+        android:text="Name:"
+        android:id="@+id/signUpName"
+        android:layout_marginStart="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/signUpName"
+        android:layout_toEndOf="@id/signUpName"
+        android:layout_marginStart="56dp"
+        android:id="@+id/editName"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="18sp"
+        android:layout_below="@id/signUpName"
+        android:text="Email:"
+        android:id="@+id/signUpEmail"
+        android:layout_marginStart="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/signUpEmail"
+        android:id="@+id/editEmail"
+        android:layout_alignStart="@id/editName"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="18sp"
+        android:layout_below="@id/signUpEmail"
+        android:text="Password:"
+        android:id="@+id/signUpPassword"
+        android:layout_marginStart="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/signUpPassword"
+        android:id="@+id/editPassword"
+        android:inputType="textPassword"
+        android:layout_alignStart="@id/editEmail"
+        android:layout_marginEnd="16dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPassword"
+        android:layout_alignStart="@id/editPassword"
+        android:layout_marginTop="16dp"
+        android:text="Send me my friend's reviews"
+        android:id="@+id/checkFriendsReview"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Sign Up"
+        android:layout_centerHorizontal="true"
+        android:background="#372515"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/checkFriendsReview"
+        android:textColor="#ffffff"
+        android:id="@+id/signUpUsingEmail"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or:"
+        android:layout_below="@id/signUpUsingEmail"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
+
+
+</RelativeLayout>
