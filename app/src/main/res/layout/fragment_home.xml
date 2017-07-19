@@ -2,9 +2,17 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="layout.HomeFragment">
+tools:context=".HomeFragment">
 
     <include layout="@layout/toolbar_layout" />
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/signup"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/infoImg"/>
 
     <Button
         android:layout_width="match_parent"

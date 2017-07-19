@@ -1,4 +1,4 @@
-package layout;
+package grimreaper.bookworm;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import grimreaper.bookworm.R;
 
@@ -16,6 +17,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private OnFragmentInteractionListener mListener;
     Button signUp;
     Button signIn;
+    ImageView unregisteredUserImgInfo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         signUp.setOnClickListener(this);
         signIn = (Button)rootView.findViewById(R.id.signin);
         signIn.setOnClickListener(this);
+        unregisteredUserImgInfo = (ImageView)rootView.findViewById(R.id.infoImg);
+        Bundle bundle = getArguments();
+        if(bundle != null) {
+            int resId = bundle.getInt("img_res_id");
+            unregisteredUserImgInfo.setImageResource(resId);
+        }
         return rootView;
     }
 
